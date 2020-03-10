@@ -4,20 +4,15 @@ class Player
     def hand
       puts "数字を入力してください。"
       puts "0:グー, 1:チョキ, 2:パー"     
-      input_hand = gets.to_i
-      
-      checker = true
-      while checker do
-        if input_hand == 0 || input_hand == 1 || input_hand == 2 then
-            player_hand = input_hand
-            checker = false
-        else
-            puts "もう一度数字を入力してください。"
-            puts "0:グー, 1:チョキ, 2:パー"
-            input_hand = gets.to_i
-        end
+      input_hand = gets.chomp
 
+      while input_hand != "0" &&  input_hand !="1" && input_hand !="2" do
+        puts "もう一度数字を入力してください。"
+        puts "0:グー, 1:チョキ, 2:パー"
+        input_hand = gets.chomp
       end
+
+      player_hand = input_hand.to_i
       return player_hand
 
     end
